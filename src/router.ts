@@ -6,6 +6,7 @@ import multer from 'multer';
 import { createCategory } from './app/useCases/categories/createCategory';
 import { listCategories } from './app/useCases/categories/listCategories';
 import { listProductsByCategory } from './app/useCases/categories/listProductsByCategory';
+import { cancelOrder } from './app/useCases/orders/cancelOrder';
 import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
 import { createOrder } from './app/useCases/orders/createOrder';
 import { listOrders } from './app/useCases/orders/listOrders';
@@ -40,3 +41,5 @@ router.get('/orders', listOrders);
 router.post('/orders', createOrder);
 
 router.patch('/orders/:orderId', changeOrderStatus);
+
+router.delete('/orders/:orderId', cancelOrder);
