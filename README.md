@@ -52,3 +52,130 @@ pnpm install
 ```sh
 pnpm dev
 ```
+
+## Rotas
+
+### Categorias
+
+- **GET /categories**: Lista todas as categorias.
+- **POST /categories**: Cria uma categoria.
+
+### Produtos
+
+- **GET /products**: Lista todos os contatos.
+- **GET /categories/:categoryId/products**: Lista todos os produtos de uma categoria.
+- **POST /products**: Cria um produto.
+
+### Pedidos
+
+- **GET /orders**: Lista todos os pedidos.
+- **POST /orders**: Cria um pedido.
+- **PATCH /orders/:orderId**: Atualiza o status de um pedido.
+- **DELETE /orders/:orderId**: Cancela um pedido.
+
+## Exemplos
+
+Aqui estão exemplos de uso de cada rota da API:
+
+### Categorias
+
+- **Listar todas as categorias**:
+
+```http
+GET /categories
+```
+
+- **Criar uma categoria**:
+```http
+POST /categories
+Content-Type: application/json
+
+{
+  "name": "Promoções",
+  "icon": "🏷️"
+}
+```
+
+### Produtos
+
+- **Listar todos os produtos**:
+
+```http
+GET /products
+```
+
+- **Listar todos os produtos de uma categoria**:
+
+```http
+GET /categories/65a83c4b642ab1a0a0776bc1/products
+```
+
+- **Criar um produto**:
+```http
+POST /products
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="name"
+
+X-frango com Fritas
+--boundary
+Content-Disposition: form-data; name="description"
+
+Lanche X-frango com o melhor frango frito do país
+--boundary
+Content-Disposition: form-data; name="image"; filename="x-frango.png"
+Content-Type: image/png
+
+< ./x-frango.png
+--boundary
+Content-Disposition: form-data; name="price"
+
+18.99
+--boundary
+Content-Disposition: form-data; name="category"
+
+65a83c67642ab1a0a0776bc5
+--boundary
+Content-Disposition: form-data; name="ingredients"
+
+[{ "name": "Frango frito", "icon": "🍗" }, { "name":  "Alface", "icon": "🥬" }, { "name": "Tomate", "icon": "🍅" }]
+--boundary--
+```
+
+### Pedidos
+
+- **Listar todos os pedidos**:
+
+```http
+GET /orders
+```
+
+- **Criar um pedido**:
+```http
+POST /orders
+Content-Type: application/json
+
+{
+	"table": "123",
+	"products": [
+		{ "product": "65a845d3642ab1a0a0776bd5", "quantity": 2 },
+		{ "product": "65a84aba642ab1a0a0776c0a", "quantity": 4 }
+	]
+}
+```
+
+- **Atualizar o status de um pedido**:
+```http
+PATCH /orders/65a85117642ab1a0a0776c56
+Content-Type: application/json
+
+{
+	"status": "IN_PRODUCTION"
+}
+```
+
+- **Cancelar um pedido**:
+```http
+DELETE /orders/65a85117642ab1a0a0776c56
+```
