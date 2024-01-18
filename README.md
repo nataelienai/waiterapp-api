@@ -157,11 +157,11 @@ POST /orders
 Content-Type: application/json
 
 {
-	"table": "123",
-	"products": [
-		{ "product": "65a845d3642ab1a0a0776bd5", "quantity": 2 },
-		{ "product": "65a84aba642ab1a0a0776c0a", "quantity": 4 }
-	]
+  "table": "123",
+  "products": [
+    { "product": "65a845d3642ab1a0a0776bd5", "quantity": 2 },
+    { "product": "65a84aba642ab1a0a0776c0a", "quantity": 4 }
+  ]
 }
 ```
 
@@ -171,7 +171,7 @@ PATCH /orders/65a85117642ab1a0a0776c56
 Content-Type: application/json
 
 {
-	"status": "IN_PRODUCTION"
+  "status": "IN_PRODUCTION"
 }
 ```
 
