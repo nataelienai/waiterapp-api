@@ -73,6 +73,10 @@ pnpm dev
 - **PATCH /orders/:orderId**: Atualiza o status de um pedido.
 - **DELETE /orders/:orderId**: Cancela um pedido.
 
+### Uploads
+
+- **GET /uploads/:imagePath**: Busca a imagem de um produto.
+
 ## Exemplos
 
 Aqui estão exemplos de uso de cada rota da API:
@@ -178,4 +182,11 @@ Content-Type: application/json
 - **Cancelar um pedido**:
 ```http
 DELETE /orders/65a85117642ab1a0a0776c56
+```
+
+### Uploads
+
+- **Buscar a imagem de um produto**:
+```http
+GET /uploads/1705529405013-x-frango.png
 ```
